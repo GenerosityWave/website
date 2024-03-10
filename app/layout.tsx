@@ -6,7 +6,8 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
-
+import { ThemeModeScript } from 'flowbite-react';
+import { ClerkProvider } from '@clerk/nextjs'
 export const metadata: Metadata = {
 	title: {
 		default: siteConfig.name,
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
 		{ media: "(prefers-color-scheme: dark)", color: "black" },
 	],
 	icons: {
-		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
+		icon: "/images/logo.png",
+		shortcut: "/images/logo.png",
+		apple: "/images/logo.png",
 	},
 };
 
@@ -30,8 +31,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
+		<ClerkProvider>
 		<html lang="en" suppressHydrationWarning>
-			<head />
+			   <head>
+        <ThemeModeScript />
+      </head>
 			<body
 				className={clsx(
 					"min-h-screen bg-background font-sans antialiased",
@@ -48,16 +52,17 @@ export default function RootLayout({
 							<Link
 								isExternal
 								className="flex items-center gap-1 text-current"
-								href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-								title="nextui.org homepage"
+								href="/"
+								title="Donation homepage"
 							>
-								<span className="text-default-600">Powered by</span>
-								<p className="text-primary">NextUI</p>
+								<span className="text-default-600">Made with 💖 by</span>
+								<p className="text-primary">R2SL Devs </p>
 							</Link>
 						</footer>
 					</div>
 				</Providers>
 			</body>
 		</html>
+		</ClerkProvider>
 	);
 }
