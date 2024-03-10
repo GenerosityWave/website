@@ -56,7 +56,31 @@ export const Navbar = () => {
 								{item.label}
 							</NextLink>
 						</NavbarItem>
-					))}
+					))
+					
+					}<SignedIn>
+							<NextLink
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"data-[active=true]:text-primary data-[active=true]:font-medium"
+						)}
+						color="foreground"
+						href="/user-profile"
+						>User profile</NextLink>
+						</SignedIn>
+						<SignedOut>
+					
+					<NextLink
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"data-[active=true]:text-primary data-[active=true]:font-medium"
+						)}
+						color="foreground"
+						href="/sign-in"
+						>Sign In</NextLink>
+				
+					
+				</SignedOut>
 				</ul>
 			
 			</NavbarContent>
@@ -94,7 +118,22 @@ export const Navbar = () => {
 							>
 								{item.label}
 							</Link>
+							<SignedOut>
+					<br />
+					<Link
+						color="foreground"
+						href="/sign-in"
+						size="lg">Sign In</Link>
 					
+				</SignedOut>
+				<SignedIn>
+					<br />
+					<Link
+						color="foreground"
+						href="/user-profile"
+						size="lg">User Profile</Link>
+					
+				</SignedIn>
 						</NavbarMenuItem>
 					))}
 			

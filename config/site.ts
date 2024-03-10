@@ -8,14 +8,7 @@ export const siteConfig = {
 			label: "Home",
 			href: "/",
 		},
-    {
-      label: "Sign In",
-      href: "/sign-in",
-    },
-    {
-      label: "User Profile",
-      href: "/user-profile",
-    },
+
 
 	],
 	navMenuItems: [
@@ -23,14 +16,7 @@ export const siteConfig = {
 			label: "Home",
 			href: "/",
 		},
-    {
-      label: "Sign In",
-      href: "/sign-in",
-    },
-	{
-		label: "User Profile",
-		href: "/user-profile",
-	  },
+  
 
 	],
 	links: {
