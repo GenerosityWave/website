@@ -14,10 +14,6 @@ export const metadata: Metadata = {
 		template: `%s - ${siteConfig.name}`,
 	},
 	description: siteConfig.description,
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
 	icons: {
 		icon: "/images/logo.png",
 		shortcut: "/images/logo.png",
