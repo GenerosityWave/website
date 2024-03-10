@@ -7,7 +7,7 @@ import {
 	NavbarItem,
 	NavbarMenuItem,
 } from "@nextui-org/navbar";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton,SignOutButton , SignedIn, SignedOut,} from "@clerk/nextjs";
 import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
@@ -58,13 +58,14 @@ export const Navbar = () => {
 						</NavbarItem>
 					))}
 				</ul>
+			
 			</NavbarContent>
 
 			<NavbarContent
 				className="hidden sm:flex basis-1/5 sm:basis-full"
 				justify="end"
 			>
-		<UserButton />
+	
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
@@ -77,7 +78,7 @@ export const Navbar = () => {
 			<NavbarMenu>
 				
 				<div className="mx-4 mt-2 flex flex-col gap-2">
-				<UserButton />
+			
 					{siteConfig.navMenuItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
 							<Link
@@ -93,10 +94,17 @@ export const Navbar = () => {
 							>
 								{item.label}
 							</Link>
+					
 						</NavbarMenuItem>
 					))}
+			
 				</div>
 			</NavbarMenu>
+			<SignedIn>
+					<NavbarItem>
+					<SignOutButton/>
+					</NavbarItem>
+				</SignedIn>
 		</NextUINavbar>
 	);
 };
