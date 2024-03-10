@@ -50,10 +50,9 @@ export default function RootLayout({
 						</main>
 						<footer className="w-full flex items-center justify-center py-3">
 							<Link
-								isExternal
 								className="flex items-center gap-1 text-current"
-								href="/"
-								title="Donation homepage"
+								href="/r2sldevs"
+								title="Credits"
 							>
 								<span className="text-default-600">Made with 💖 by</span>
 								<p className="text-primary">R2SL Devs </p>

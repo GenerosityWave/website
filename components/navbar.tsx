@@ -81,6 +81,11 @@ export const Navbar = () => {
 				
 					
 				</SignedOut>
+				<SignedIn>
+					
+					<SignOutButton/>
+				
+				</SignedIn>
 				</ul>
 			
 			</NavbarContent>
@@ -134,16 +139,17 @@ export const Navbar = () => {
 						size="lg">User Profile</Link>
 					
 				</SignedIn>
+				<SignedIn>
+					<br />
+					<SignOutButton/>
+				
+				</SignedIn>
 						</NavbarMenuItem>
 					))}
-			
+				
 				</div>
 			</NavbarMenu>
-			<SignedIn>
-					<NavbarItem>
-					<SignOutButton/>
-					</NavbarItem>
-				</SignedIn>
+		
 		</NextUINavbar>
 	);
 };
