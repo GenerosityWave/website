@@ -2,8 +2,12 @@
 import { supabase } from '../supadb.js'
 import { useState } from 'react';
 import { title } from "@/components/primitives";
-
+import { Toast } from 'flowbite-react';
+import { HiFire } from 'react-icons/hi';
+import { HiCheck, HiExclamation, HiX } from 'react-icons/hi';
+import { useClerk,SignedIn,SignedOut } from "@clerk/nextjs";
 export default function DocsPage() {
+    const { user } = useClerk();
     const [orgId, setOrgId] = useState('');
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
@@ -37,11 +41,21 @@ if(data){
     
 }
     };
-	return (
+	return (<>
 		<div>
 			<h1 className={title()}>Admin Page</h1>
-
+            </div>
 <br />
+{(user!=undefined) &&  (user.publicMetadata.admin!="yes")&&( 
+
+    <Toast>
+      <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-100 text-cyan-500 dark:bg-cyan-800 dark:text-cyan-200">
+        <HiFire className="h-5 w-5" />
+      </div>
+      <div className="ml-3 text-sm font-normal">Oopsie you are not an admin </div>
+      <Toast.Toggle /> 
+      </Toast>)}
+
 {showSuccessMessage && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
                     <strong className="font-bold">Success!</strong>
@@ -53,6 +67,7 @@ if(data){
                 </div>
             )}
              <br />
+             {user && (user.publicMetadata.admin=="yes") && (
 <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
   <div className="relative z-0 w-full mb-5 group">
    
@@ -84,8 +99,8 @@ if(data){
       <label  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Description</label>
   </div>
   <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-</form>
+</form>)}
 
-		</div>
+	</>	
 	);
 }

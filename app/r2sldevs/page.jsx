@@ -87,7 +87,7 @@ export default function DocsPage() {
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                       <a href="#">Rohit prabhakaran</a>
                   </h3>
-                  <span className="text-gray-500 dark:text-gray-400">Senior Front-end Developer</span>
+                  <span className="text-gray-500 dark:text-gray-400">Marketing & Sale</span>
                   <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400"> Drives the technical strategy of the  Generosity Waveplatform and brand.</p>
                   <ul className="flex space-x-4 sm:mt-0">
                       <li>
@@ -121,7 +121,7 @@ export default function DocsPage() {
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                       <a href="#">Rahulram</a>
                   </h3>
-                  <span className="text-gray-500 dark:text-gray-400">Marketing & Sale</span>
+                  <span className="text-gray-500 dark:text-gray-400">Senior Front-end Developer</span>
                   <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">   Drives the technical strategy of the  Generosity Waveplatform and brand.</p>
                   <ul className="flex space-x-4 sm:mt-0">
                       <li>

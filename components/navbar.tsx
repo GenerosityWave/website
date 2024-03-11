@@ -1,3 +1,4 @@
+"use client"
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -12,6 +13,7 @@ import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
+import { useClerk } from "@clerk/nextjs";
 
 import { link as linkStyles } from "@nextui-org/theme";
 
@@ -31,7 +33,7 @@ import {
 
 
 export const Navbar = () => {
-
+	const { user } = useClerk();
 
 	return (
 		<NextUINavbar maxWidth="xl" position="sticky">
@@ -68,6 +70,14 @@ export const Navbar = () => {
 						href="/user-profile"
 						>User profile</NextLink>
 						</SignedIn>
+						{(user!=undefined) &&  (user.publicMetadata.admin=="yes")&&(	<NextLink
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"data-[active=true]:text-primary data-[active=true]:font-medium"
+						)}
+						color="foreground"
+						href="/admin"
+						>Admin</NextLink>)}
 						<SignedOut>
 					
 					<NextLink
@@ -137,7 +147,14 @@ export const Navbar = () => {
 						color="foreground"
 						href="/user-profile"
 						size="lg">User Profile</Link>
-					
+					{(user!=undefined) &&  (user.publicMetadata.admin=="yes")&&(	<><br /><NextLink
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"data-[active=true]:text-primary data-[active=true]:font-medium"
+						)}
+						color="foreground"
+						href="/admin"
+						>Admin</NextLink></>)}
 				</SignedIn>
 				<SignedIn>
 					<br />
